@@ -1,7 +1,17 @@
 const About = () => {
   return (
     <>
-      <div className="mt-3 p-4" style={{ minHeight: "80vh" }}>
+      <div
+        className="mt-3 p-4"
+        style={{
+          minHeight: "80vh",
+          margin: "0px auto",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          maxWidth: "1080px",
+        }}
+      >
         <h2>About Us</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
