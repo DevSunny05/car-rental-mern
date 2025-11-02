@@ -152,9 +152,8 @@ const CarDetailsView = () => {
         return;
       }
 
-      // Example: replace with API call to submit booking
       console.log("Booking submitted from CarDetailsView:", booking);
-      // feedback to user (you may replace with toast)
+
       toast.success(
         `Booking confirmed for ${car.name}. Total: ₹${booking.total}`
       );
