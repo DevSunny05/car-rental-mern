@@ -1,39 +1,33 @@
 import dotenv from "dotenv";
 // import jwt from "jsonwebtoken";
-import User from "../models/userModel.js";
+import userModel from "../models/userModel.js";
 import bcrypt from "bcryptjs";
-
-dotenv.config();
-
-// const JWT_SECRET = process.env.JWT_SECRET || "change_this_secret";
-
-// function generateToken(user) {
-//   return jwt.sign(
-//     { id: user._id, email: user.email, role: user.role },
-//     JWT_SECRET,
-//     { expiresIn: "7d" }
-//   );
-// }
 
 export const registerController = async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
-    if (!name || !email || !password || phone) {
+    if (!name || !email || !password || !phone) {
       return res
         .status(400)
         .json({ error: "Name, email and password are required" });
     }
 
-    const existing = await User.findOne({ email: email.toLowerCase() });
+    const existing = await userModel.findOne({ email: email });
     if (existing)
       return res
         .status(409)
         .json({ error: "Email already in use", success: "false" });
+
     // hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const user = await User.create({ name, email, phone, hashedPassword });
+    const user = await userModel.create({
+      name,
+      email,
+      phone,
+      password: hashedPassword,
+    });
     await user.save();
     // const token = generateToken(user);
 
