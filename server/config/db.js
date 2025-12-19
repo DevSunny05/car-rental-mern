@@ -6,10 +6,6 @@ dotenv.config();
 const MONGO_URI =
   process.env.MONGO_URI || "mongodb://127.0.0.1:27017/car-rental";
 
-/**
- * Connect to MongoDB using mongoose.
- * Throws on failure so the caller can decide how to handle it.
- */
 export async function connectDB() {
   try {
     // Avoid deprecation warnings for query filters in older codebases
