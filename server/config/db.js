@@ -8,7 +8,7 @@ const MONGO_URI =
 
 export async function connectDB() {
   try {
-    // Avoid deprecation warnings for query filters in older codebases
+   
     mongoose.set("strictQuery", false);
 
     const conn = await mongoose.connect(MONGO_URI);
