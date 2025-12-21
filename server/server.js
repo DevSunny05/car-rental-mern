@@ -12,7 +12,6 @@ const app = expresss();
 dotenv.config();
 connectDB();
 
-// middlewares
 app.use(cors());
 app.use(expresss.json());
 app.use(morgan("dev"));
