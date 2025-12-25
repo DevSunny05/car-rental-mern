@@ -16,7 +16,7 @@ app.use(cors());
 app.use(expresss.json());
 app.use(morgan("dev"));
 
-// routes
+
 
 app.use("/api/v1/user", userRoutes);
 
