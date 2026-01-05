@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post("/register", registerController);
 
-// POST /api/auth/login
+
 router.post("/login", loginController);
 
 export default router;
